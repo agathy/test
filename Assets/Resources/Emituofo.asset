@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3250dd4106e6fc845bf6e2a324270b28, type: 3}
+  m_Name: Emituofo
+  m_EditorClassIdentifier: 
+  test:
+  - anzi: "\u5B54\u96C0\u6848"
+    XianSuo:
+    - content: "\u6551\u547D"
+      jiesuo: 0
+    - content: "\u6551\u547D\u554A"
+      jiesuo: 0
+    - content: "\u6551\u547D\u963F\u554A\u554A"
+      jiesuo: 0
+  - anzi: "\u53D6\u65E0\u6839\u6C34"
+    XianSuo:
+    - content: "\u963F\u963F\u65AF\u987F"
+      jiesuo: 1
+    - content: "\u53BB\u73A9\u513F"
+      jiesuo: 0
+    - content: "\u5728V\u578B\u4ECEvz"
+      jiesuo: 0
+    - content: "\u6253\u53D1\u6492\u65E6\u6CD5"
+      jiesuo: 0
+    - content: "\u5E7F\u4E1C\u4F5B\u5C71\u4E2A"
+      jiesuo: 0
+    - content: "\u6216\u4F4E\u529F\u8017"
+      jiesuo: 0
+    - content: "\u95EE\u9898\u8DF3\u821E"
+      jiesuo: 0
+  - anzi: "\u6458\u661F\u4E50\u5E9C"
+    XianSuo:
+    - content: "\u65E0\u4EBA\u65E0\u4EBA\u4ED6"
+      jiesuo: 0
+    - content: "\u65E0\u4EBA\u53F0\u6E7E\u4EBA"
+      jiesuo: 0
+    - content: "\u800C\u4ED6\u6E29\u70ED\u8DF3\u821E\u60F9"
+      jiesuo: 0

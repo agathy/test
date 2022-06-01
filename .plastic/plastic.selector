@@ -1,0 +1,4 @@
+repository "汉宫春晓@ssl://wechat_os_qy04iup5qafmjqbnswkt21qea@sh01-plasticscm.unity.cn:8787"
+  path "/"
+    br "/main"
+    co "/main"

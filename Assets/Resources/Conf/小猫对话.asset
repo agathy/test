@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e197a5cdd24c8841b5982c56b640a2d, type: 3}
+  m_Name: "\u5C0F\u732B\u5BF9\u8BDD"
+  m_EditorClassIdentifier: 
+  DialogModels:
+  - NPCConf: {fileID: 11400000, guid: 1f9d4cf2859f1d24794047c1007f49ed, type: 2}
+    NPCHead: {fileID: 21300000, guid: e8ddd53484bda034992d53810f2a8ded, type: 3}
+    NPCContent: 123456789123
+    DialogClass: 0
+    DialogEventModels:
+    - DialogEvent: 3
+      Args: 1
+    DialogPlayerSelects:
+    - Conent: "\u6211\u8981\u7ED9\u4F60\u5403\u4E1C\u897F"
+      DialogEventModels:
+      - DialogEvent: 0
+        Args: 1
+  - NPCConf: {fileID: 11400000, guid: 1f9d4cf2859f1d24794047c1007f49ed, type: 2}
+    NPCHead: {fileID: 21300000, guid: e8ddd53484bda034992d53810f2a8ded, type: 3}
+    NPCContent: "\u4F60\u8981\u7ED9\u6211\u5403\u4EC0\u4E48"
+    DialogClass: 1
+    DialogEventModels: []
+    DialogPlayerSelects:
+    - Conent: "\u82F9\u679C"
+      DialogEventModels:
+      - DialogEvent: 0
+        Args: 2
+    - Conent: "\u5C41"
+      DialogEventModels:
+      - DialogEvent: 1
+        Args: 
+  - NPCConf: {fileID: 11400000, guid: 1f9d4cf2859f1d24794047c1007f49ed, type: 2}
+    NPCHead: {fileID: 21300000, guid: e8ddd53484bda034992d53810f2a8ded, type: 3}
+    NPCContent: "\u8C22\u8C22\u4F60\u771F\u597D\u5403"
+    DialogClass: 0
+    DialogEventModels:
+    - DialogEvent: 6
+      Args: "\u5C0F\u732B_0"
+    DialogPlayerSelects:
+    - Conent: "\u90A3\u5C31\u597D"
+      DialogEventModels:
+      - DialogEvent: 0
+        Args: 
+  - NPCConf: {fileID: 11400000, guid: 6e0b8f5b380ee7e488f68183c3f182e0, type: 2}
+    NPCHead: {fileID: 21300000, guid: 63e0c53c5e0a914458b02dcf0214fdc3, type: 3}
+    NPCContent: "\u4F60\u4EEC\u5728\u5403\u4EC0\u4E48\n\u6211\u4E5F\u60F3\u5403"
+    DialogClass: 1
+    DialogEventModels:
+    - DialogEvent: 3
+      Args: 1
+    DialogPlayerSelects:
+    - Conent: "\u4E0D\u7ED9"
+      DialogEventModels:
+      - DialogEvent: 1
+        Args: 
+      - DialogEvent: 6
+        Args: "\u5C0F\u732B_1"
+  - NPCConf: {fileID: 11400000, guid: 1f9d4cf2859f1d24794047c1007f49ed, type: 2}
+    NPCHead: {fileID: 21300000, guid: e8ddd53484bda034992d53810f2a8ded, type: 3}
+    NPCContent: iloveyou
+    DialogClass: 0
+    DialogEventModels: []
+    DialogPlayerSelects:
+    - Conent: metoo
+      DialogEventModels:
+      - DialogEvent: 1
+        Args: 
+  - NPCConf: {fileID: 11400000, guid: 1f9d4cf2859f1d24794047c1007f49ed, type: 2}
+    NPCHead: {fileID: 21300000, guid: e8ddd53484bda034992d53810f2a8ded, type: 3}
+    NPCContent: shashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashashasha
+    DialogClass: 3
+    DialogEventModels: []
+    DialogPlayerSelects: []

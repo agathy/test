@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e197a5cdd24c8841b5982c56b640a2d, type: 3}
+  m_Name: "\u7A46\u98CE\u5BF9\u8BDD"
+  m_EditorClassIdentifier: 
+  DialogModels:
+  - NPCConf: {fileID: 11400000, guid: 33a6a8c88f43166479eb32a3bef49add, type: 2}
+    NPCHead: {fileID: 21300000, guid: 119fb27e4431ff745a78b13ec8388c8b, type: 3}
+    NPCContent: "\u542C\u8BF4\u4E86\u5417\uFF0C\u54B1\u4EEC\u5BAB\u91CC\u6709\u4EBA\u4F1A\u5996\u672F\u3002"
+    DialogClass: 0
+    DialogEventModels:
+    - DialogEvent: 0
+      Args: 
+    DialogPlayerSelects: []
+  - NPCConf: {fileID: 11400000, guid: 33a6a8c88f43166479eb32a3bef49add, type: 2}
+    NPCHead: {fileID: 21300000, guid: 119fb27e4431ff745a78b13ec8388c8b, type: 3}
+    NPCContent: "\u5979\u4E13\u95E8\u65BD\u6CD5\u8BA9\u54B1\u4EEC\u4EAC\u57CE\u4E09\u5E74\u4E0D\u4E0B\u96E8\u3002"
+    DialogClass: 0
+    DialogEventModels:
+    - DialogEvent: 0
+      Args: 
+    - DialogEvent: 3
+      Args: "\u6E29\u5FC3_0.4"
+    - DialogEvent: 2
+      Args: 2
+    DialogPlayerSelects: []
+  - NPCConf: {fileID: 11400000, guid: 33a6a8c88f43166479eb32a3bef49add, type: 2}
+    NPCHead: {fileID: 21300000, guid: 119fb27e4431ff745a78b13ec8388c8b, type: 3}
+    NPCContent: "\u542C\u8BF4\u4E86\u5417\uFF0C\u54B1\u4EEC\u5BAB\u91CC\u6709\u4EBA\u4F1A\u5996\u672F\u3002"
+    DialogClass: 0
+    DialogEventModels:
+    - DialogEvent: 0
+      Args: 
+    DialogPlayerSelects: []
+  - NPCConf: {fileID: 11400000, guid: 33a6a8c88f43166479eb32a3bef49add, type: 2}
+    NPCHead: {fileID: 21300000, guid: 119fb27e4431ff745a78b13ec8388c8b, type: 3}
+    NPCContent: "\u5979\u4E13\u95E8\u65BD\u6CD5\u8BA9\u54B1\u4EEC\u4EAC\u57CE\u4E09\u5E74\u4E0D\u4E0B\u96E8\u3002"
+    DialogClass: 0
+    DialogEventModels:
+    - DialogEvent: 0
+      Args: 2
+    - DialogEvent: 2
+      Args: 2
+    DialogPlayerSelects: []
