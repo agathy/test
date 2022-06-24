@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07a4f224a2d5d34abb3ba5c8091cff7, type: 3}
   m_Name: "\u6625\u857E"
   m_EditorClassIdentifier: 
-  Head: {fileID: 21300000, guid: aac9a30c9c349534990e2d84f22e7b28, type: 3}
+  Head: {fileID: 21300000, guid: 021c6e4dd9775724b9040c191e7e00f0, type: 3}
   Name: "\u6625\u857E"
-  State: 19
-  Pos: -1
-  isUnlock: 1
+  State: 0
+  currPos: -1
+  targetPos: -1
+  isUnlock: 0
   move: 0
   unlockmessage:
     NPCConf: {fileID: 11400000}

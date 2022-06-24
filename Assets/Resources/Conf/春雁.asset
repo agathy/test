@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07a4f224a2d5d34abb3ba5c8091cff7, type: 3}
   m_Name: "\u6625\u96C1"
   m_EditorClassIdentifier: 
-  Head: {fileID: 21300050, guid: 6e43932fcf79bb44881725c7dba2dfde, type: 3}
+  Head: {fileID: 21300000, guid: 1e823de49faff8f4287d783bddc8aca1, type: 3}
   Name: "\u6625\u96C1"
   State: 0
+  currPos: -1
+  targetPos: -1
   isUnlock: 0
   move: 0
   unlockmessage:

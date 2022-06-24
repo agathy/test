@@ -280,7 +280,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3222273847
 --- !u!114 &8293705857794269877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +313,10 @@ MonoBehaviour:
   Interact:
     key: 101
     controllerButton: 4
+    m_Enabled: 1
+  Skill:
+    key: 101
+    controllerButton: 3
     m_Enabled: 1
   MeleeAttack:
     key: 107

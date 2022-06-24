@@ -61,7 +61,8 @@ namespace hgcxt
             dialogConf = Resources.Load<DialogConf>("Conf/" + this.name + "对话");
             npcConf = Resources.Load<NPCConf>("Conf/" + this.name);
             npcConf.State = 0f;
-            npcConf.Pos = -1;
+            npcConf.currPos = -1;
+            npcConf.targetPos = -1;
             npcConf.move = false;
             npcConf.isUnlock = false;
            
@@ -89,7 +90,7 @@ namespace hgcxt
             }
             //移动
             int count = npcConf.MovePositions.Count;
-            if (count == npcConf.Pos+1||count==0)
+            if (npcConf.targetPos == npcConf.currPos||count==0)
             {
                 npcConf.move = false;
             }
@@ -98,11 +99,11 @@ namespace hgcxt
                 if (npcConf.move)
                 {
                     print(this.name + count);
-                    this.transform.position = Vector3.MoveTowards(this.transform.position, npcConf.MovePositions[npcConf.Pos+1], 0.8f*Time.deltaTime);
+                    this.transform.position = Vector3.MoveTowards(this.transform.position, npcConf.MovePositions[npcConf.currPos+1], 0.8f*Time.deltaTime);
                 }
-                if (this.transform.position == npcConf.MovePositions[npcConf.Pos+1])
+                if (this.transform.position == npcConf.MovePositions[npcConf.currPos+1])
                 {
-                    npcConf.Pos+=1;
+                    npcConf.currPos+=1;
                 }
             }            
             //npcConf.isUnlock=IsAllClueGet(clueConf);
@@ -145,11 +146,13 @@ namespace hgcxt
         /// <summary>
         /// 定向移动
         /// </summary>
-        public void DirectionalMigrationEvent(string name)
+        public void DirectionalMigrationEvent(string name,int index)
         {
+            print("动一动");
             MoveNPC = name;
             NPCConf movenpc = Resources.Load<NPCConf>("Conf/" + name);
             movenpc.move = true;
+            movenpc.targetPos = index;
             
         }
 

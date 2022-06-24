@@ -86,7 +86,9 @@ namespace hgcxt
         [LabelText("定向移动")]
         DirectionalMigration,
         [LabelText("临时线索获取")]
-        emituofo
+        emituofo,
+        [LabelText("播放动画")]
+        AnimationPlay
 
     }
     /// <summary>

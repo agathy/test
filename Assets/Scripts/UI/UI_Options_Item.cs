@@ -14,8 +14,8 @@ namespace hgcxt
         private TextMeshProUGUI text;
         private bool isSelect;
 
-        private Color blackColor = new Color(0, 0, 0, 0.6f);
-        private Color whiteColor = new Color(1, 1, 1, 0.6f);
+        private Color blackColor = new Color(0, 0, 0, 1);
+        private Color whiteColor = new Color(1, 1, 1, 1);
 
         private DialogPlayerSelect dialogPlayerSelect;
         public bool IsSelect
@@ -26,13 +26,13 @@ namespace hgcxt
                 isSelect = value;
                 if (isSelect)
                 {
-                    image.color = blackColor;
-                    text.color = Color.white;
+                //    image.color = blackColor;
+                  //  text.color = Color.white;
                 }
                 else
                 {
-                    image.color = whiteColor;
-                    text.color = Color.black;
+                    //image.color = whiteColor;
+                    //text.color = Color.black;
                 }
             }
         }

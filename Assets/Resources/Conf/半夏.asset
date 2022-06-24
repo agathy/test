@@ -12,7 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07a4f224a2d5d34abb3ba5c8091cff7, type: 3}
   m_Name: "\u534A\u590F"
   m_EditorClassIdentifier: 
-  Head: {fileID: 21300040, guid: 6e43932fcf79bb44881725c7dba2dfde, type: 3}
+  Head: {fileID: 21300000, guid: 4e1feb47e8d034d42bca4b7c86891708, type: 3}
   Name: "\u534A\u590F"
-  State: 17
+  State: 0
+  currPos: -1
+  targetPos: -1
   isUnlock: 0
+  move: 0
+  unlockmessage:
+    NPCConf: {fileID: 0}
+    NPCHead: {fileID: 0}
+    NPCContent: 
+    DialogClass: 0
+    DialogEventModels: []
+    DialogPlayerSelects: []
+  MovePositions: []

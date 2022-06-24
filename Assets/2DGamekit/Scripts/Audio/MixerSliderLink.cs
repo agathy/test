@@ -33,7 +33,7 @@ namespace hgcxt
 
         void SliderValueChange(float value)
         {
-            mixer.SetFloat(mixerParameter, minAttenuation + value * (maxAttenuation - minAttenuation));
+            mixer.SetFloat(mixerParameter, minAttenuation + (1-value) * (maxAttenuation - minAttenuation));
         }
     }
 }

@@ -161,7 +161,7 @@ namespace hgcxt
                     vfx.vfxOverrideDictionnary[tb].prefab = vfx.vfxOverride[i].prefab;
                 }
 
-                m_FxPools[StringToHash(vfx.prefab.name)] = vfx;
+//                m_FxPools[StringToHash(vfx.prefab.name)] = vfx;
             }
         }
 

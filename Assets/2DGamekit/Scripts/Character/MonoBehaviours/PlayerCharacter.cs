@@ -252,6 +252,8 @@ namespace hgcxt
         /*——————————————系统设置——————————————*/
         public void Unmenus()
         {
+            print("bbb");
+
             //if the timescale is already > 0, we 
             if (Time.timeScale > 0)
                 return;
@@ -261,7 +263,9 @@ namespace hgcxt
         protected IEnumerator UnmenusCoroutine()
         {
             Time.timeScale = 1;
+            print("ccc");
             UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("Option");
+
             PlayerInput.Instance.GainControl();
             //we have to wait for a fixed update so the pause button state change, otherwise we can get in case were the update
             //of this script happen BEFORE the input is updated, leading to setting the game in pause once again
@@ -932,10 +936,19 @@ namespace hgcxt
 
         public void OpenUIByButton(string SceneName)
         {
-           
+
+            
             switch (SceneName)
             {
-
+                case "Option":
+                    if (!m_InMenus)
+                    {
+                        if (ScreenFader.IsFading)
+                            return;
+                        m_InMenus = true;
+                        Time.timeScale = 0;
+                    }
+                    break;
                 case "ClueMap":
                     if (!m_InClueMap)
                     {
@@ -943,7 +956,7 @@ namespace hgcxt
                             return;
                         m_InClueMap = true;
                         //Time.timeScale = 0;
-                        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("ClueMap", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+                        //UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(SceneName, UnityEngine.SceneManagement.LoadSceneMode.Additive);
                     }
                     else
                     {
@@ -957,7 +970,7 @@ namespace hgcxt
                             return;
                         m_InInventory = true;
                        // Time.timeScale = 0;
-                        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Inventory", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+                       // UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(SceneName, UnityEngine.SceneManagement.LoadSceneMode.Additive);
                     }
                     else
                     {
@@ -967,6 +980,7 @@ namespace hgcxt
                 default:break;
 
             }
+            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(SceneName, UnityEngine.SceneManagement.LoadSceneMode.Additive);
 
         }
         public void OpenUIByKeyboard(string SceneName)

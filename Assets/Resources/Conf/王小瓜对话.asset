@@ -15,11 +15,11 @@ MonoBehaviour:
   DialogModels:
   - NPCConf: {fileID: 11400000, guid: 0a50b49244e018a4d9a29d16654f4d6f, type: 2}
     NPCHead: {fileID: 21300000, guid: 86d5ee14dfb5a6342ad6aae1133f4561, type: 3}
-    NPCContent: "\u6211\u662F\u738B\u5C0F\u74DC"
-    DialogClass: 0
+    NPCContent: "\u8FD9\u5B54\u96C0\u6050\u6015\u4E5F\u77E5\u9053\u5B83\u6C38\u8FDC\u51FA\u4E0D\u53BB\u4E86\u3002"
+    DialogClass: 1
     DialogEventModels:
     - DialogEvent: 2
-      Args: 2
+      Args: 1
     DialogPlayerSelects: []
   - NPCConf: {fileID: 11400000, guid: 5b4bda1da129f544783815d24c969a5f, type: 2}
     NPCHead: {fileID: 21300000, guid: b7f0bbb0377ad59428edfb2ad7bb9c8b, type: 3}
@@ -194,6 +194,8 @@ MonoBehaviour:
     NPCContent: "\u90A3\u8FB9\u4E1C\u53A2\u623F\u91CC\u5C31\u662F\u3002"
     DialogClass: 0
     DialogEventModels:
+    - DialogEvent: 0
+      Args: 0
     - DialogEvent: 0
       Args: "\u6625\u857E_1"
     - DialogEvent: 2

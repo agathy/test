@@ -8,6 +8,7 @@ namespace hgcxt
     {
         public void ExitMenus()
         {
+            print("aaaa");
             PlayerCharacter.PlayerInstance.Unmenus();
         }
 
@@ -19,6 +20,7 @@ namespace hgcxt
 
         public void BackToStart()
         {
+            Time.timeScale = 1;
             //ExitMenus();
             UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Start", UnityEngine.SceneManagement.LoadSceneMode.Single);
         }

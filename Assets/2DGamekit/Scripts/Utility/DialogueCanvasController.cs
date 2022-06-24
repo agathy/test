@@ -48,10 +48,10 @@ namespace hgcxt
         private TextMeshProUGUI bubbleText;
         private GameObject reviewCanvas;
         private TextMeshProUGUI reviewText;
-        private GameObject bubbleCanvas;
+        public GameObject bubbleCanvas;
         //++++++
-
-
+        public GameObject MainCamera;
+        string npcname;
 
         private void Awake()
         {
@@ -79,12 +79,12 @@ namespace hgcxt
 
             //线索回顾
             reviewCanvas = transform.Find("ReviewBG").gameObject;
-            reviewCanvas.SetActive(false);
+            reviewCanvas.SetActive(true);
             reviewText =transform.Find("ReviewBG/TextMeshPro Text").GetComponent<TextMeshProUGUI>();
             //气泡
-            bubbleCanvas= transform.Find("BubbleBG").gameObject;
+            //bubbleCanvas= transform.Find("BubbleBG").gameObject;
             bubbleCanvas.SetActive(false);
-            bubbleText = transform.Find("BubbleBG/TextMeshPro Text").GetComponent<TextMeshProUGUI>();
+            bubbleText = bubbleCanvas.transform.Find("BubbleBG/Text (TMP)").GetComponent<TextMeshProUGUI>();
 
             paramReduction();
 
@@ -93,8 +93,22 @@ namespace hgcxt
 
         private void Start()
         {
+            DialogConf thePlayerDialog = Resources.Load<DialogConf>("Conf/主角对话");
             
+            mainText = transform.Find("ReviewBG/TextMeshPro Text").GetComponent<TextMeshProUGUI>();
+            StartCoroutine(DoMainTextEF(thePlayerDialog.DialogModels[0]));
 
+        }
+        private void Update()
+        {
+            if (bubbleCanvas.activeInHierarchy==true)
+            {
+                  bubbleCanvas.GetComponent<RectTransform>().position = GameObject.Find(npcname).transform.position+new Vector3(0,3.6f,0);
+//                bubbleCanvas.GetComponent<RectTransform>().position = new Vector3(bubbleCanvas.GetComponent<RectTransform>().position.x, GameObject.Find(npcname).transform.position.y*85+1200f, 0);
+                print(bubbleCanvas.GetComponent<RectTransform>().position);
+
+            }
+            //            
         }
 
 
@@ -124,7 +138,7 @@ namespace hgcxt
             else
             {
               
-                ShowHowManyChar = 70;
+                //ShowHowManyChar = 70;
                 //要从第0条数据开始
                 
                 currIndex = (int)npcConf.State;
@@ -144,21 +158,43 @@ namespace hgcxt
               
                 if (model.DialogClass == 1)
                 {
+                    ShowHowManyChar = 14;
                     //气泡框
-                    mainText = transform.Find("BubbleBG/TextMeshPro Text").GetComponent<TextMeshProUGUI>();
+                    mainText = bubbleText;
+//                    mainText = GameObject.Find("BubbleCanvas/BubbleBG/Text (TMP)").GetComponent<TextMeshProUGUI>();
                     bubbleCanvas.SetActive(true);
+                  
                     dialogueCanvas.SetActive(false);
                     reviewCanvas.SetActive(false);
                 }
-                else if (model.DialogClass == 0)
+                if (model.DialogClass == 0)
                 {
-                    //
+
+                    ShowHowManyChar = 70;
                     mainText = transform.Find("DialogueBG/TextMeshPro Text").GetComponent<TextMeshProUGUI>();
                     dialogueCanvas.SetActive(true);
                     bubbleCanvas.SetActive(false);
                     reviewCanvas.SetActive(false);
                 }
+                //立绘
                 head.sprite = model.NPCConf.Head;
+                head.GetComponent<RectTransform>().sizeDelta =new Vector2( model.NPCConf.Head.rect.width,model.NPCConf.Head.rect.height);
+                if (model.DialogClass != 1)
+                {
+                    if (model.NPCConf.Name == "仇先居")
+                    {
+                        head.transform.position = new Vector3(1297, 0, 0);
+                        mainText.transform.position = new Vector3(-213.65f + 960f, mainText.transform.position.y, 0);
+                    }
+                    else
+                    {
+                        head.transform.position = new Vector3(104, 0, 0);
+                        mainText.transform.position = new Vector3(213.65f + 960f, mainText.transform.position.y, 0);
+                    }
+                }
+    
+
+                print(mainText.transform.position);
                 nameText.text = model.NPCConf.Name;
             }
 
@@ -170,11 +206,7 @@ namespace hgcxt
 //            StartCoroutine(DoMainTextEF(model.NPCContent));
             StartCoroutine(DoMainTextEF(model));
 
-            //npc事件
-            for (int i = 0; i < model.DialogEventModels.Count; i++)
-            {
-                ParseDiaLogEvent(model.DialogEventModels[i].DialogEvent, model.DialogEventModels[i].Args);
-            }
+         
 
             //玩家选项
             //删除已有的玩家选项
@@ -238,7 +270,7 @@ namespace hgcxt
                     break;
 
                 case DialogEventEnum.ExitDialog:
-                    ExitDialogEvent(int.Parse(args));
+                    ExitDialogEvent(float.Parse(args));
                     break;
                 case DialogEventEnum.JumpDialog:
                     JumpDialogEvent(args.Split('_')[0],float.Parse(args.Split('_')[1]));
@@ -257,11 +289,14 @@ namespace hgcxt
                     NPCManager.Instance.ItemLoseEvent(args);
                     break;
                 case DialogEventEnum.DirectionalMigration:
-                    NPCManager.Instance.DirectionalMigrationEvent(args);
+                    NPCManager.Instance.DirectionalMigrationEvent(args.Split('_')[0],int.Parse(args.Split('_')[1]));
                     break;
                 case DialogEventEnum.emituofo:
                     print("jingli");
                     EllenDialogue.Instance.test(args.Split('_')[0],int.Parse(args.Split('_')[1]));
+                    break;
+                case DialogEventEnum.AnimationPlay:
+                    EllenDialogue.Instance.AnimationPlayEvent(args);
                     break;
 
 
@@ -294,7 +329,7 @@ namespace hgcxt
         /// <summary>
         /// 退出对话
         /// </summary>
-        public void ExitDialogEvent(int delay)
+        public void ExitDialogEvent(float delay)
         {
             DeactivateCanvasWithDelay(delay);
         }
@@ -311,7 +346,7 @@ namespace hgcxt
         /// 对话触发其他对话事件
         /// </summary>
         public void EventtriggerEvent(string name,int index)
-        {         
+        {
             NPCConf triggernpc = Resources.Load<NPCConf>("Conf/" + name);
             triggernpc.State = index;
         }
@@ -343,16 +378,21 @@ namespace hgcxt
 
            
             yield return new WaitForSeconds (delay);
+            GuideCanvasController.flag+=1;
             animator.SetBool(m_HashActivePara, false);
             gameObject.SetActive(false);
+            bubbleCanvas.SetActive(false);
             PlayerInput.Instance.Interact.Enable();
         }
 
 
         public void ActivateCanvasWithText(string name)
         {
-         
-            //TestDialog();
+            npcname = name;
+            if (name != "主角")
+            {
+            }
+                //TestDialog();
             if (!gameObject.activeInHierarchy)
             {
                 if (m_DeactivationCoroutine != null)
@@ -439,6 +479,7 @@ namespace hgcxt
         /// <param name="delay"></param>
         public void DeactivateCanvasWithDelay(float delay)
         {
+           
             if (gameObject.activeInHierarchy)
             {
               
@@ -457,7 +498,7 @@ namespace hgcxt
         /// <returns></returns>
         IEnumerator DoMainTextEF(DialogModel model)
         {
-
+            PlayerInput.Instance.Interact.Disable();
             paramReduction();
             ary = model.NPCContent.ToCharArray();
 
@@ -465,8 +506,10 @@ namespace hgcxt
        
             while (!full)
             {
-
-               
+/*
+                print(full);
+                print(mainText.text);
+               */
                 index = Temp;
                 Count = (index > ary.Length) ? ary.Length : (Count + ShowHowManyChar);
              
@@ -476,23 +519,42 @@ namespace hgcxt
                     full = true;
                 }
                 mainText.text = "";
-                for (int i = index; i < Count;i++)
+                for (int i = index; i < Count;)
                 {
-                    string temp = mainText.text;
+
+                    string temp = mainText.text; 
+                    if (ary[i] == '<')
+                    {
+                        for (int j = i+1;; j++)
+                        {
+                            print(temp);
+                            if (ary[j] == '>')
+                            {
+                                temp = ary.ArrayToString().Substring(0, j + 1);
+                                i = j + 1;
+                           
+                                break;
+                            }
+                        }
+                    }
+
+
+                    else { temp = mainText.text; }
+                    
                     string s = ary[i].ToString();
-                    mainText.text = temp + s;
-                 
-                    yield return new WaitForSeconds(0.03f);
 
                     Temp = i + 1;
+
+                    mainText.text = temp + s;
+                    yield return new WaitForSeconds(0.03f);
+                    i++;
                 }
 
                 yield return new WaitForSeconds(0.2f);
             }
             if (full)
             {
-                print("已到文本最后");
-           
+                PlayerInput.Instance.Interact.Enable();
                 //生成玩家选项
                 for (int i = 0; i < model.DialogPlayerSelects.Count; i++)
                 {
@@ -501,6 +563,16 @@ namespace hgcxt
                     item.Init(model.DialogPlayerSelects[i]);
 
                 }
+
+                //npc事件
+                for (int i = 0; i < model.DialogEventModels.Count; i++)
+                {
+            
+                    ParseDiaLogEvent(model.DialogEventModels[i].DialogEvent, model.DialogEventModels[i].Args);
+                }
+
+
+              
                 //gameObject.SetActive(false);
                 //yield return new WaitForSeconds(1);
                 PlayerInput.Instance.Interact.Enable();

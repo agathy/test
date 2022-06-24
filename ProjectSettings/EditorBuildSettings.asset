@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/2DGamekit/Scenes/Start.unity
     guid: 57df1e417250bc247976c2c0dc088efe
   - enabled: 1
+    path: Assets/2DGamekit/Scenes/Zone0.unity
+    guid: 197028bade064344eae8e070214a1535
+  - enabled: 0
     path: Assets/2DGamekit/Scenes/Zone1.unity
     guid: a94cb8f134bf81349ad016c79b629e3d
   - enabled: 1
@@ -41,28 +44,28 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/2DGamekit/FancyScrollView-master/FancyScrollView-master/Assets/FancyScrollView/Examples/02_FocusOn.unity
     guid: ff644be2cb161904ba6ec037baf31ad1
-  - enabled: 1
+  - enabled: 0
     path: Assets/2DGamekit/FancyScrollView-master/FancyScrollView-master/Assets/FancyScrollView/Examples/03_InfiniteScroll.unity
     guid: 22d1be941599faf45b04ab4c6a2def09
-  - enabled: 1
+  - enabled: 0
     path: Assets/2DGamekit/FancyScrollView-master/FancyScrollView-master/Assets/FancyScrollView/Examples/04_Metaball.unity
     guid: 4f0f25a90e2674f75a24f6ea541c0a6c
-  - enabled: 1
+  - enabled: 0
     path: Assets/2DGamekit/FancyScrollView-master/FancyScrollView-master/Assets/FancyScrollView/Examples/05_Voronoi.unity
     guid: 9f4081131e0754ae184f905e3d995a98
-  - enabled: 1
+  - enabled: 0
     path: Assets/2DGamekit/FancyScrollView-master/FancyScrollView-master/Assets/FancyScrollView/Examples/06_LoopTabBar.unity
     guid: 58528ac4d9c36415ea90597e1199f2e4
-  - enabled: 1
+  - enabled: 0
     path: Assets/2DGamekit/FancyScrollView-master/FancyScrollView-master/Assets/FancyScrollView/Examples/07_ScrollRect.unity
     guid: 8d95738372cdc4d858b4c4c4f06d2db1
-  - enabled: 1
+  - enabled: 0
     path: Assets/2DGamekit/FancyScrollView-master/FancyScrollView-master/Assets/FancyScrollView/Examples/08_GridView.unity
     guid: 8441a013bef6d450aa8dc5de6207a233
-  - enabled: 1
+  - enabled: 0
     path: Assets/2DGamekit/FancyScrollView-master/FancyScrollView-master/Assets/FancyScrollView/Examples/09_LoadTexture.unity
     guid: eb8cb776d6776468eb0bec979e0c2010
   - enabled: 0
@@ -80,13 +83,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/aaaa.unity
     guid: 86effef431f0a4a4bada10e64fb3e7aa
-  - enabled: 1
+  - enabled: 0
     path: Assets/NewScene.unity
     guid: d2a79e413c604cf4ba36299530863fb5
-  - enabled: 1
+  - enabled: 0
     path: Assets/2DGamekit/FancyScrollView-master/FancyScrollView-master/Assets/FancyScrollView/Examples/01_Basic.unity
     guid: f5666b6c719a9b544ab322e1066aef5f
   m_configObjects: {}

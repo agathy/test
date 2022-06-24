@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5da5bb6fe19a09f4f8111d0d9102093c, type: 3}
   m_Name: "\u5A04\u5C0F\u9505\u7EBF\u7D22"
   m_EditorClassIdentifier: 
-  NPCConf: {fileID: 0}
-  NPCHead: {fileID: 0}
+  NPCConf: {fileID: 11400000, guid: 6e66ff2b6f703fe49aea3467a077e0e2, type: 2}
+  NPCHead: {fileID: 21300000, guid: 75a36c8886a27f54b833c41de3d11d24, type: 3}
   Clues:
   - 
   IsClueGet: 00

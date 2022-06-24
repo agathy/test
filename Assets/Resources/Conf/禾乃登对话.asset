@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e197a5cdd24c8841b5982c56b640a2d, type: 3}
+  m_Name: "\u79BE\u4E43\u767B\u5BF9\u8BDD"
+  m_EditorClassIdentifier: 
+  DialogModels:
+  - NPCConf: {fileID: 11400000, guid: 9a1e5440a4ecf754a8bc43fe0431fd79, type: 2}
+    NPCHead: {fileID: 0}
+    NPCContent: "\u5A09\u5A77\u4F3C\u4E0D\u4EFB\u7F57\u7EEE\uFF0C\u987E\u542C\u4E50\u60AC\u884C\u590D\u6B62\u3002"
+    DialogClass: 1
+    DialogEventModels:
+    - DialogEvent: 0
+      Args: 1
+    DialogPlayerSelects: []

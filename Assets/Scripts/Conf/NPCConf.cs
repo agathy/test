@@ -13,8 +13,10 @@ namespace hgcxt
         public string Name;
         [VerticalGroup("NPC/NPCField"), LabelText("对话状态")]
         public float State;
-        [VerticalGroup("NPC/NPCField"), LabelText("位置状态")]
-        public int Pos;
+        [ LabelText("当前位置")]
+        public int currPos;
+        [LabelText("目标位置")]
+        public int targetPos;
         [VerticalGroup("NPC/NPCField"), LabelText("解锁")]
         public bool isUnlock;
         [VerticalGroup("NPC/NPCField"),LabelText("移动")]

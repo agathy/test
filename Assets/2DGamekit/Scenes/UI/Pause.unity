@@ -164,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1882789802960370, guid: 28fdaedf686cb394ba208418f1942254, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1921586383499004, guid: 28fdaedf686cb394ba208418f1942254, type: 3}
       propertyPath: m_IsActive
@@ -270,6 +270,11 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114448729442465160, guid: 28fdaedf686cb394ba208418f1942254,
+        type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 3222273847
+      objectReference: {fileID: 0}
     - target: {fileID: 114461327402825228, guid: 28fdaedf686cb394ba208418f1942254,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -330,6 +335,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114609603826625896, guid: 28fdaedf686cb394ba208418f1942254,
+        type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 3222273847
       objectReference: {fileID: 0}
     - target: {fileID: 114639535613268642, guid: 28fdaedf686cb394ba208418f1942254,
         type: 3}
@@ -437,6 +447,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114782214549657310, guid: 28fdaedf686cb394ba208418f1942254,
+        type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 3222273847
+      objectReference: {fileID: 0}
+    - target: {fileID: 114843179880663644, guid: 28fdaedf686cb394ba208418f1942254,
+        type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 3222273847
       objectReference: {fileID: 0}
     - target: {fileID: 114909145059062880, guid: 28fdaedf686cb394ba208418f1942254,
         type: 3}

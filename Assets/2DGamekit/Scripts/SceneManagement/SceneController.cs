@@ -11,6 +11,9 @@ namespace hgcxt
     /// </summary>
     public class SceneController : MonoBehaviour
     {
+
+        public static  AsyncOperation async = null;
+
         public static SceneController Instance
         {
             get
@@ -94,6 +97,7 @@ namespace hgcxt
 
         public static void TransitionToScene(TransitionPoint transitionPoint)
         {
+           
             Instance.StartCoroutine(Instance.Transition(transitionPoint.newSceneName, transitionPoint.resetInputValuesOnTransition, transitionPoint.transitionDestinationTag, transitionPoint.transitionType));
         }
 
@@ -104,14 +108,20 @@ namespace hgcxt
 
         protected IEnumerator Transition(string newSceneName, bool resetInputValues, SceneTransitionDestination.DestinationTag destinationTag, TransitionPoint.TransitionType transitionType = TransitionPoint.TransitionType.DifferentZone)
         {
+        
             m_Transitioning = true;
-            PersistentDataManager.SaveAllData();
+           PersistentDataManager.SaveAllData();
 
             if (m_PlayerInput == null)
                 m_PlayerInput = FindObjectOfType<PlayerInput>();
             m_PlayerInput.ReleaseControl(resetInputValues);
+           
             yield return StartCoroutine(ScreenFader.FadeSceneOut(ScreenFader.FadeType.Loading));
+            print("jiuminga");
             PersistentDataManager.ClearPersisters();
+         
+            async = SceneManager.LoadSceneAsync(newSceneName);
+            async.allowSceneActivation = false;
             yield return SceneManager.LoadSceneAsync(newSceneName);
             m_PlayerInput = FindObjectOfType<PlayerInput>();
             m_PlayerInput.ReleaseControl(resetInputValues);

@@ -66,6 +66,7 @@ namespace hgcxt
         protected IEnumerator Fade(float finalAlpha, CanvasGroup canvasGroup)
         {
             m_IsFading = true;
+            
             canvasGroup.blocksRaycasts = true;
             float fadeSpeed = Mathf.Abs(canvasGroup.alpha - finalAlpha) / fadeDuration;
             while (!Mathf.Approximately(canvasGroup.alpha, finalAlpha))
@@ -101,6 +102,7 @@ namespace hgcxt
 
         public static IEnumerator FadeSceneOut (FadeType fadeType = FadeType.Black)
         {
+           
             CanvasGroup canvasGroup;
             switch (fadeType)
             {
@@ -118,6 +120,7 @@ namespace hgcxt
             canvasGroup.gameObject.SetActive (true);
             
             yield return Instance.StartCoroutine(Instance.Fade(1f, canvasGroup));
+            print("救命");
         }
     }
 }
