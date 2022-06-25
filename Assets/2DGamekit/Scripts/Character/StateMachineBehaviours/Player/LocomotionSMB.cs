@@ -11,12 +11,12 @@ namespace hgcxt
 
         public override void OnSLStateNoTransitionUpdate (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            m_MonoBehaviour.UpdateFacing();
+      //      m_MonoBehaviour.UpdateFacing();
          
             m_MonoBehaviour.GroundedHorizontalMovement(true);
             m_MonoBehaviour.GroundedVerticalMovement(true);
             //m_MonoBehaviour.CheckForCrouching();
-           // m_MonoBehaviour.CheckForGrounded();
+           /*// m_MonoBehaviour.CheckForGrounded();
             m_MonoBehaviour.CheckForPushing();
             m_MonoBehaviour.CheckForHoldingGun();
             m_MonoBehaviour.CheckAndFireGun ();
@@ -27,7 +27,7 @@ namespace hgcxt
             {
                 Debug.Log("o");
                 m_MonoBehaviour.MeleeAttack();
-            }
+            }*/
              
         }
     }

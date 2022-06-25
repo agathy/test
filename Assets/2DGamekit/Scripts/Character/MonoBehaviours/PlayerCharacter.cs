@@ -63,7 +63,7 @@ namespace hgcxt
         public float maxVerticalDeltaDampTime;
         public float verticalCameraOffsetDelay;
 
-        public bool spriteOriginallyFacesLeft;
+        bool spriteOriginallyFacesLeft;
 
         protected CharacterController2D m_CharacterController2D;
         protected Animator m_Animator;
@@ -100,6 +100,7 @@ namespace hgcxt
         protected bool m_InClueMap = false;
 
 
+        protected readonly int m_HashMovePara = Animator.StringToHash("MoveState");
         protected readonly int m_HashHorizontalSpeedPara = Animator.StringToHash("HorizontalSpeed");
         protected readonly int m_HashVerticalSpeedPara = Animator.StringToHash("VerticalSpeed");
         protected readonly int m_HashGroundedPara = Animator.StringToHash("Grounded");
@@ -109,9 +110,9 @@ namespace hgcxt
         protected readonly int m_HashRespawnPara = Animator.StringToHash("Respawn");
         protected readonly int m_HashDeadPara = Animator.StringToHash("Dead");
         protected readonly int m_HashHurtPara = Animator.StringToHash("Hurt");
-        protected readonly int m_HashForcedRespawnPara = Animator.StringToHash("ForcedRespawn");
-        protected readonly int m_HashMeleeAttackPara = Animator.StringToHash("MeleeAttack");
-        protected readonly int m_HashHoldingGunPara = Animator.StringToHash("HoldingGun");
+        //protected readonly int m_HashForcedRespawnPara = Animator.StringToHash("ForcedRespawn");        
+        //protected readonly int m_HashMeleeAttackPara = Animator.StringToHash("MeleeAttack");
+        //protected readonly int m_HashHoldingGunPara = Animator.StringToHash("HoldingGun");
 
         protected const float k_MinHurtJumpAngle = 0.001f;
         protected const float k_MaxHurtJumpAngle = 89.999f;
@@ -130,7 +131,7 @@ namespace hgcxt
             m_Capsule = GetComponent<CapsuleCollider2D>();
             m_Transform = transform;
             m_InventoryController = GetComponent<InventoryController>();
-
+            spriteOriginallyFacesLeft = true;
             m_CurrentBulletSpawnPoint = spriteOriginallyFacesLeft ? facingLeftBulletSpawnPoint : facingRightBulletSpawnPoint;
         }
 
@@ -161,7 +162,7 @@ namespace hgcxt
             SceneLinkedSMB<PlayerCharacter>.Initialise(m_Animator, this);
 
             m_StartingPosition = transform.position;
-            m_StartingFacingLeft = GetFacing() < 0.0f;
+         //   m_StartingFacingLeft = GetFacing() < 0.0f;
         }
 
         void OnTriggerEnter2D(Collider2D other)
@@ -220,6 +221,25 @@ namespace hgcxt
         void FixedUpdate()
         { 
             m_CharacterController2D.Move(m_MoveVector * Time.deltaTime);
+            if (m_MoveVector.x > 0)
+            {
+                m_Animator.SetFloat(m_HashMovePara, 1);
+            }
+            else if (m_MoveVector.x <0)
+            {
+                m_Animator.SetFloat(m_HashMovePara, -1);
+            }
+            if (m_MoveVector.y > 0)
+            {
+                m_Animator.SetFloat(m_HashMovePara, 2);
+            }
+            else if (m_MoveVector.y < 0)
+            {
+                m_Animator.SetFloat(m_HashMovePara, -2);
+            }
+
+
+
             m_Animator.SetFloat(m_HashHorizontalSpeedPara, m_MoveVector.x);
             m_Animator.SetFloat(m_HashVerticalSpeedPara, m_MoveVector.y);
             UpdateBulletSpawnPointPositions();
@@ -475,28 +495,28 @@ namespace hgcxt
 
             if (faceLeft)
             {
-                spriteRenderer.flipX = !spriteOriginallyFacesLeft;
+              //  spriteRenderer.flipX = !spriteOriginallyFacesLeft;
              //   m_CurrentBulletSpawnPoint = facingLeftBulletSpawnPoint;
             }
             else if (faceRight)
             {
-                spriteRenderer.flipX = spriteOriginallyFacesLeft;
+            //    spriteRenderer.flipX = spriteOriginallyFacesLeft;
                // m_CurrentBulletSpawnPoint = facingRightBulletSpawnPoint;
             }
         }
 
         public void UpdateFacing(bool faceLeft)
         {
-            if (faceLeft)
-            {
-                spriteRenderer.flipX = !spriteOriginallyFacesLeft;
+           /* if (faceLeft)
+            {*/
+        /*        spriteRenderer.flipX = !spriteOriginallyFacesLeft;
                 m_CurrentBulletSpawnPoint = facingLeftBulletSpawnPoint;
             }
             else
             {
                 spriteRenderer.flipX = spriteOriginallyFacesLeft;
                 m_CurrentBulletSpawnPoint = facingRightBulletSpawnPoint;
-            }
+            }*/
         }
 
         public float GetFacing()
@@ -518,20 +538,7 @@ namespace hgcxt
         // 垂直移动
         public void GroundedVerticalMovement(bool useInput, float speedScale =1f)
         {
-             
-           
-            if (transform.position.y < -4.5)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sortingOrder = 4;
-            }
-            else if (transform.position.y < -1)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sortingOrder= 2;
-            }
-            else
-            {
-                gameObject.GetComponent<SpriteRenderer>().sortingOrder= 0;
-            }
+ 
             speedScale=Accelerate();
             float desiredSpeed = useInput ? PlayerInput.Instance.Vertical.Value * maxSpeed * speedScale : 0f;
             float acceleration = useInput && PlayerInput.Instance.Vertical.ReceivingInput ? groundAcceleration : groundDeceleration;
@@ -737,7 +744,7 @@ namespace hgcxt
             damageable.DisableInvulnerability();
         }
 
-        public bool CheckForHoldingGun()
+ /*       public bool CheckForHoldingGun()
         {
             bool holdingGun = false;
 
@@ -758,9 +765,9 @@ namespace hgcxt
             }
 
             return holdingGun;
-        }
+        }*/
 
-        public void CheckAndFireGun()
+/*        public void CheckAndFireGun()
         {
             if (PlayerInput.Instance.RangedAttack.Held && m_Animator.GetBool(m_HashHoldingGunPara))
             {
@@ -773,13 +780,13 @@ namespace hgcxt
                 StopCoroutine(m_ShootingCoroutine);
                 m_ShootingCoroutine = null;
             }
-        }
+        }*/
 
-        public void ForceNotHoldingGun()
+/*        public void ForceNotHoldingGun()
         {
             m_Animator.SetBool(m_HashHoldingGunPara, false);
         }
-
+*/
         public void EnableInvulnerability()
         {
             damageable.EnableInvulnerability();
@@ -814,9 +821,9 @@ namespace hgcxt
             m_Animator.SetTrigger(m_HashHurtPara);
 
             //we only force respawn if helath > 0, otherwise both forceRespawn & Death trigger are set in the animator, messing with each other.
-            if(damageable.CurrentHealth > 0 && damager.forceRespawn)
+       /*     if(damageable.CurrentHealth > 0 && damager.forceRespawn)
                 m_Animator.SetTrigger(m_HashForcedRespawnPara);
-
+*/
             m_Animator.SetBool(m_HashGroundedPara, false);
             hurtAudioPlayer.PlayRandomSound();
 
@@ -866,10 +873,10 @@ namespace hgcxt
             return PlayerInput.Instance.MeleeAttack.Down;
         }
 
-        public void MeleeAttack()
+/*        public void MeleeAttack()
         {
             m_Animator.SetTrigger(m_HashMeleeAttackPara);
-        }
+        }*/
 
         public void EnableMeleeAttack()
         {

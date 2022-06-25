@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 
 namespace hgcxt
 {
@@ -19,9 +19,9 @@ namespace hgcxt
             m_MonoBehaviour.CheckForPushing();
             m_MonoBehaviour.CheckForHoldingGun();
             m_MonoBehaviour.CheckAndFireGun();
-            /* if (m_MonoBehaviour.CheckForJumpInput())
+            *//* if (m_MonoBehaviour.CheckForJumpInput())
                  m_MonoBehaviour.SetVerticalMovement(m_MonoBehaviour.jumpSpeed);
-             else */
+             else *//*
             if (m_MonoBehaviour.CheckForMeleeAttackInput())
                 m_MonoBehaviour.MeleeAttack();
         }
@@ -33,4 +33,4 @@ namespace hgcxt
                 m_MonoBehaviour.ForceNotHoldingGun ();
         }
     }
-}
+}*/
